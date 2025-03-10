@@ -1,9 +1,8 @@
 ############################################################################### 
-# Pedigree
+# Arbol familiar
 # Visualización
 ############################################################################### 
 
-library(AGHmatrix)
 library(kinship2)
 library(igraph)
 library(openxlsx)
