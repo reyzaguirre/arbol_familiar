@@ -7,18 +7,22 @@ library(kinship2)
 library(igraph)
 library(openxlsx)
 
-d <- read.xlsx('eyzaguirre.xlsx')
+d <- read.xlsx('entradas.xlsx')
 
 d$padre <- gsub('Eyzaguirre', 'E', d$padre)
 d$madre <- gsub('Eyzaguirre', 'E', d$madre)
 d$hijo <- gsub('Eyzaguirre', 'E', d$hijo)
 
-pedAll <- pedigree(
-  id = d$hijo, 
-  dadid = d$padre, 
-  momid = d$madre,
-  sex = d$sex)
+# subgrupo
 
-png('eyza_ped.png', 10000, 2000, res = 150)
-plot(pedAll, angle = 4)
+tmp <- d[d$familia %in% c(0, 3), ]
+
+ped <- pedigree(
+  id = tmp$hijo, 
+  dadid = tmp$padre, 
+  momid = tmp$madre,
+  sex = tmp$sex)
+
+png('butron_liendo.png', 9200, 2000, res = 150)
+plot(ped)
 dev.off()
