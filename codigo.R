@@ -23,6 +23,6 @@ ped <- pedigree(
   momid = tmp$madre,
   sex = tmp$sex)
 
-png('butron_liendo.png', 9200, 2000, res = 150)
+png('arboles/butron_liendo.png', 9200, 2000, res = 150)
 plot(ped)
 dev.off()
